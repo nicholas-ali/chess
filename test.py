@@ -24,7 +24,7 @@ for i in range(0, 8):
             else:
                 pygame.draw.rect(background, (238,238,210), (100*i, 100*x, 100, 100))
         
-Bishop = pygame.image.load("blackBishop.png")
+Bishop = pygame.image.load("wn.png")
 Bishop = pygame.transform.scale(Bishop, (100, 100))
 
 background.blit(Bishop, (100, 100))
