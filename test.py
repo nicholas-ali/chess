@@ -1,19 +1,35 @@
 import pygame
 import pygame_gui
 
-
 pygame.init()
 
 pygame.display.set_caption('Quick Start')
-window_surface = pygame.display.set_mode((800, 600))
+window_surface = pygame.display.set_mode((800, 800))
 
-background = pygame.Surface((800, 600))
-background.fill(pygame.Color('#000000'))
+background = pygame.Surface((800, 800))
+background.fill(pygame.Color('#ffffff'))
 
-manager = pygame_gui.UIManager((800, 600))
+manager = pygame_gui.UIManager((800, 800))
 
-hello_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((350, 275), (100, 50)), text='Say Hello', manager=manager)
-pygame.draw.rect(background, (71, 119, 196), )
+for i in range(0, 8):
+    for x in range(0, 8):
+        if i%2:
+            if x%2:
+                pygame.draw.rect(background, (238,238,210), (100*i, 100*x, 100, 100))
+            else:
+                pygame.draw.rect(background, (118,150,86), (100*i, 100*x, 100, 100))
+        else:
+            if x%2:
+                pygame.draw.rect(background, (118,150,86), (100*i, 100*x, 100, 100))
+            else:
+                pygame.draw.rect(background, (238,238,210), (100*i, 100*x, 100, 100))
+        
+Bishop = pygame.image.load("blackBishop.png")
+Bishop = pygame.transform.scale(Bishop, (100, 100))
+
+background.blit(Bishop, (100, 100))
+
+background.blit(Bishop, (200, 100))
 
 clock = pygame.time.Clock()
 is_running = True
@@ -24,9 +40,6 @@ while is_running:
         if event.type == pygame.QUIT:
             is_running = False
 
-        if event.type == pygame_gui.UI_BUTTON_PRESSED:
-            if event.ui_element == hello_button:
-                print('Hello World!')
 
         manager.process_events(event)
 
