@@ -2,6 +2,7 @@ import pygame
 import pygame_gui
 import chess
 
+
 def drawBoard():
     fen = board.fen().replace("/", "")
     xval = 0
@@ -129,7 +130,7 @@ while is_running:
                     print("Black Wins")
                 else:
                     print("Draw")
-                board = chess.Board()
+                board.reset()
                 updateScreen()
         manager.process_events(event)
 
