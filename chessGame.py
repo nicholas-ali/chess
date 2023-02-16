@@ -1,10 +1,10 @@
 import pygame
 import pygame_gui
 import chess
-
+import engine
 
 def drawBoard():
-    fen = board.fen().replace("/", "")
+    fen = board.board_fen().replace("/", "")
     xval = 0
     yval = 0
     for i in fen:
@@ -120,6 +120,7 @@ while is_running:
                 if (chess.Move.from_uci(curMove) in board.legal_moves):
                     board.push(chess.Move.from_uci(curMove))
                     updateScreen()
+                    print(engine.evaluate(board))
                 curMove = ""
                 if curPiece:
                     curMove = chess.square_name(currentSqr)
