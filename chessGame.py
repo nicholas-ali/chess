@@ -121,6 +121,11 @@ while is_running:
                     board.push(chess.Move.from_uci(curMove))
                     updateScreen()
                     print(engine.evaluate(board))
+                elif (chess.Move.from_uci(curMove + "q")  in board.legal_moves):
+                    curMove  = curMove + input("Which piece do you want to promote your pawn to? [q, r, b, n]: ")
+                    board.push(chess.Move.from_uci(curMove))
+                    updateScreen()
+                    print(engine.evaluate(board))
                 curMove = ""
                 if curPiece:
                     curMove = chess.square_name(currentSqr)
