@@ -4,7 +4,7 @@ import chess
 import engine
 
 def drawBoard():
-    fen = board.board_fen().replace("/", "")
+    fen = board.board_fen().split(" ", 1)[0].replace("/", "")
     xval = 0
     yval = 0
     for i in fen:
