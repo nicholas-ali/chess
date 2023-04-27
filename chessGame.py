@@ -4,7 +4,7 @@ import chess
 import engine
 
 def drawBoard():
-    fen = board.board_fen().split(" ", 1)[0].replace("/", "")
+    fen = board.board_fen().replace("/", "")
     xval = 0
     yval = 0
     for i in fen:
@@ -118,11 +118,6 @@ while is_running:
                 curMove = chess.square_name(currentSqr)
             if len(curMove) == 4:
                 if (chess.Move.from_uci(curMove) in board.legal_moves):
-                    board.push(chess.Move.from_uci(curMove))
-                    updateScreen()
-                    print(engine.evaluate(board))
-                elif (chess.Move.from_uci(curMove + "q")  in board.legal_moves):
-                    curMove  = curMove + input("Which piece do you want to promote your pawn to? [q, r, b, n]: ")
                     board.push(chess.Move.from_uci(curMove))
                     updateScreen()
                     print(engine.evaluate(board))
