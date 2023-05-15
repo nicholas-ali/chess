@@ -8,6 +8,16 @@ c_puct_decayRate = 0.00001
 class Action:
     __slots__ = "Q", "N", "V", "R", "state,", "prev_states"
 
+    def __init__ (self, state, move, parents):
+        self.Q = 0
+        self.N = 0
+        self.V = 0
+        self.R = 0
+        self.state = state
+
+    def evaluate(self, ):
+
+
 class Node:
     __slots__ = "board", "move", "children", "parents", "states", "action"
 
@@ -17,3 +27,6 @@ class Node:
         self.children = []
         self.parents = parents
         self.states = np.append(np.array(parents), self)
+
+    def extend(self):
+
