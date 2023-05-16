@@ -15,7 +15,11 @@ class Action:
         self.R = 0
         self.state = state
 
-    def evaluate(self, ):
+    def evaluate(self, P, Nl, v):
+        P = P[0][self.moveidx]
+        self.V = v
+        return self.R/self.N + c_puct * P * (np.sqrt(Nl)/(1+ self.N))
+        
 
 
 class Node:
