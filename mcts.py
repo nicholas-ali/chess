@@ -27,7 +27,9 @@ class Node:
 
     def __init__ (self, move, board, parents):
         self.board = board
-        # self.board.stack = 
+        self.board.stack = []
+        if move: self.move = move
+        else: self.move = None
         self.children = []
         self.parents = parents
         self.states = np.append(np.array(parents), self)
