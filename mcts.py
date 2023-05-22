@@ -15,6 +15,10 @@ class Action:
         self.R = 0
         self.state = state
 
+        self.prev_states = [self.state]
+        for node in parents:
+            self.prev_states.append(node.board)
+
     def evaluate(self, P, Nl, v):
         P = P[0][self.moveidx]
         self.V = v
@@ -34,5 +38,7 @@ class Node:
         self.parents = parents
         self.states = np.append(np.array(parents), self)
 
+        self.action = Action(self.board, self.move, self.states)
     def extend(self):
+        if not self.children
 
