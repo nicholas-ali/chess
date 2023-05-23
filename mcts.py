@@ -1,6 +1,5 @@
 import numpy as np
 from conversion import *
-
 c_puct = 2
 c_puct_decayRate = 0.00001
 
@@ -24,6 +23,9 @@ class Action:
         self.V = v
         return self.R/self.N + c_puct * P * (np.sqrt(Nl)/(1+ self.N))
         
+def evaluate(board):
+    if board.is_checkmate(): return 1
+    else: return -1
 
 
 class Node:
@@ -42,3 +44,16 @@ class Node:
     def extend(self):
         if not self.children
 
+
+class MCT():
+    __slots__ = ["prev_node", "chain", "root_node", "model", "sims"]
+
+    def __init__ (self, model, board, parents):
+        self.board = board
+        self.model = model
+        self.chain = []
+        self.createRootNode(board, parents)
+        self.sims = 0
+
+    def createRootNode(self, board, parents):
+        
