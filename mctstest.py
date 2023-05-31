@@ -1,5 +1,5 @@
 import numpy as np
-from board_conversion import *
+from conversion import *
 c_puct = 2
 c_puct_decay_rate = 0.00001
 
